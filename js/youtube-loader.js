@@ -195,7 +195,7 @@ class LogneonYouTubeLoader {
         
         const sortedVideos = [...this.loadedData.videos]
             .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-            .slice(0, 8);
+            .slice(0, 15);
         
         container.innerHTML = '';
         
@@ -219,7 +219,7 @@ class LogneonYouTubeLoader {
         
         const popularVideos = [...this.loadedData.videos]
             .sort((a, b) => parseInt(b.viewCount || 0) - parseInt(a.viewCount || 0))
-            .slice(0, 6);
+            .slice(0, 10);
         
         container.innerHTML = '';
         
