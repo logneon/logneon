@@ -406,3 +406,93 @@ window.refreshContent = function() {
 };
 
 console.log('📺 LOGNEON Dynamic Loader Ready!');
+
+// HEADER NAVIGATION FUNCTIONALITY
+function initializeHeaderButtons() {
+    console.log('🔘 Initializing header buttons...');
+    
+    const navButtons = document.querySelectorAll('.nav-brutal-object');
+    
+    navButtons.forEach(button => {
+        const section = button.dataset.section;
+        const label = button.dataset.label;
+        
+        console.log(`Setting up button: ${label} -> ${section}`);
+        
+        button.addEventListener('click', function() {
+            console.log(`🔘 Button clicked: ${label}`);
+            
+            // Special handling for different sections
+            if (section === 'subscribe' || label?.includes('SUBSCRIBE')) {
+                window.open('https://www.youtube.com/@logneon', '_blank');
+                return;
+            }
+            
+            // Scroll to sections
+            let targetElement;
+            
+            switch(section) {
+                case 'latest':
+                    targetElement = document.querySelector('.latest-videos-section, #latest, .videos-grid-chaos');
+                    break;
+                case 'popular':
+                    targetElement = document.querySelector('.viral-videos-section, #popular');
+                    break;
+                case 'shorts':
+                    targetElement = document.querySelector('.shorts-section, #shorts');
+                    break;
+                default:
+                    targetElement = document.getElementById(section);
+            }
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+                console.log(`✅ Scrolled to: ${section}`);
+            } else {
+                console.log(`⚠️ Section not found: ${section}`);
+            }
+            
+            // Visual feedback
+            this.style.transform = 'scale(1.2) rotate(5deg)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 300);
+        });
+        
+        // Hover effects
+        button.addEventListener('mouseenter', function() {
+            this.style.background = 'rgba(57, 255, 20, 0.3)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.background = 'rgba(57, 255, 20, 0.1)';
+        });
+    });
+}
+
+// Call this function after DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Add a small delay to ensure elements are loaded
+    setTimeout(initializeHeaderButtons, 1000);
+});
+
+// Also initialize after content loads
+function initializeEverything() {
+    initializeHeaderButtons();
+    
+    // Ensure stats overlay is visible
+    const statsOverlay = document.getElementById('stats-overlay');
+    if (statsOverlay) {
+        statsOverlay.style.display = 'flex';
+    }
+}
+
+// Update the main loading function
+const originalLoadYouTubeData = loadYouTubeData;
+loadYouTubeData = async function() {
+    await originalLoadYouTubeData();
+    setTimeout(initializeEverything, 500);
+};
