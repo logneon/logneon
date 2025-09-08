@@ -1,113 +1,289 @@
-// SIMPLE DYNAMIC LOADER FOR LOGNEON
+// LOGNEON DYNAMIC LOADER - FIXED VERSION
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🔥 Starting dynamic loader...');
+    console.log('🔥 Starting LOGNEON dynamic loader...');
     loadYouTubeData();
 });
 
 async function loadYouTubeData() {
+    console.log('📡 Loading YouTube data files...');
+    
     try {
-        // Hide loading screen after 3 seconds regardless
-        setTimeout(hideLoader, 3000);
-        
-        // Try to load stats
-        const statsResponse = await fetch('./data/youtube-stats.json');
-        if (statsResponse.ok) {
-            const stats = await statsResponse.json();
-            updateStats(stats);
+        // Load all data files
+        const [statsResponse, videosResponse, shortsResponse] = await Promise.allSettled([
+            fetch('./data/youtube-stats.json'),
+            fetch('./data/youtube-videos.json'),
+            fetch('./data/youtube-shorts.json')
+        ]);
+
+        let stats = {};
+        let videos = [];
+        let shorts = [];
+
+        // Process stats
+        if (statsResponse.status === 'fulfilled' && statsResponse.value.ok) {
+            stats = await statsResponse.value.json();
             console.log('✅ Stats loaded:', stats);
+            updateStats(stats);
         } else {
-            console.log('⚠️ No stats file found, using defaults');
+            console.log('⚠️ Stats failed, using defaults');
             useDefaultStats();
         }
-        
-        // Try to load videos  
-        const videosResponse = await fetch('./data/youtube-videos.json');
-        if (videosResponse.ok) {
-            const videosData = await videosResponse.json();
-            const videos = videosData.videos || videosData || [];
-            renderVideos(videos);
+
+        // Process videos
+        if (videosResponse.status === 'fulfilled' && videosResponse.value.ok) {
+            const videosData = await videosResponse.value.json();
+            videos = Array.isArray(videosData) ? videosData : (videosData.videos || []);
             console.log('✅ Videos loaded:', videos.length);
+            renderVideos(videos);
         } else {
-            console.log('⚠️ No videos file found, showing message');
+            console.log('⚠️ Videos failed, showing message');
             showNoVideos();
         }
-        
+
+        // Process shorts
+        if (shortsResponse.status === 'fulfilled' && shortsResponse.value.ok) {
+            const shortsData = await shortsResponse.value.json();
+            shorts = Array.isArray(shortsData) ? shortsData : (shortsData.shorts || []);
+            console.log('✅ Shorts loaded:', shorts.length);
+            renderShorts(shorts);
+        }
+
+        // Hide loader after everything loads
         hideLoader();
-        
+        showSuccessNotification();
+
     } catch (error) {
         console.error('❌ Loading error:', error);
-        hideLoader();
         showError();
+        hideLoader();
     }
 }
 
 function updateStats(stats) {
-    // Update subscriber counts
-    const subElements = document.querySelectorAll('[id*="subscriber"], .subscriber-chaos');
-    subElements.forEach(el => {
-        if (el.textContent.includes('REBELS')) {
-            el.textContent = `${stats.subscriberCount || 168} REBELS`;
-        } else {
-            el.textContent = stats.subscriberCount || 168;
-        }
+    console.log('📊 Updating stats with:', stats);
+    
+    const subscriberCount = stats.subscriberCount || 168;
+    const videoCount = stats.videoCount || 39;
+    const viewCount = stats.viewCount || 78609;
+    
+    // Update ALL subscriber count elements
+    const subscriberElements = [
+        '#subscriber-count',
+        '#nav-subscriber-count', 
+        '#hero-subscriber-count',
+        '#subscribe-rebel-count',
+        '.subscriber-chaos'
+    ];
+    
+    subscriberElements.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element) {
+                if (selector.includes('rebel') || selector.includes('chaos')) {
+                    element.textContent = `${subscriberCount} REBELS`;
+                } else {
+                    element.textContent = subscriberCount;
+                }
+                console.log(`Updated ${selector} to ${subscriberCount}`);
+            }
+        });
     });
     
-    // Update video counts
-    const videoElements = document.querySelectorAll('[id*="video-count"], [id*="hero-video"]');
-    videoElements.forEach(el => {
-        el.textContent = stats.videoCount || 39;
+    // Update ALL video count elements
+    const videoElements = [
+        '#video-count',
+        '#hero-video-count',
+        '#showcase-videos',
+        '.stat-number-chaos'
+    ];
+    
+    videoElements.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element && !element.textContent.includes('K')) {
+                element.textContent = videoCount;
+                console.log(`Updated ${selector} to ${videoCount}`);
+            }
+        });
     });
     
-    // Update view counts
-    const viewElements = document.querySelectorAll('[id*="total-views"], [id*="hero-total"]');
-    viewElements.forEach(el => {
-        el.textContent = formatViews(stats.viewCount || 75000);
+    // Update ALL view count elements
+    const viewElements = [
+        '#total-views',
+        '#hero-total-views', 
+        '#showcase-views',
+        '[data-stat="views"]'
+    ];
+    
+    viewElements.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element) {
+                element.textContent = formatViews(viewCount);
+                console.log(`Updated ${selector} to ${formatViews(viewCount)}`);
+            }
+        });
     });
+    
+    // Update last updated time
+    if (stats.lastUpdated) {
+        const updateTime = new Date(stats.lastUpdated).toLocaleString();
+        const updateElements = document.querySelectorAll('#last-update-time, .last-updated');
+        updateElements.forEach(element => {
+            if (element) {
+                element.textContent = updateTime;
+            }
+        });
+    }
 }
 
 function useDefaultStats() {
+    console.log('📊 Using default stats');
     updateStats({
         subscriberCount: 168,
         videoCount: 39,
-        viewCount: 75000
+        viewCount: 78609
     });
 }
 
 function renderVideos(videos) {
     const grid = document.getElementById('videos-grid');
-    if (!grid) return;
-    
+    if (!grid) {
+        console.log('❌ Videos grid not found');
+        return;
+    }
+
     if (videos.length === 0) {
         showNoVideos();
         return;
     }
+
+    console.log(`🎬 Rendering ${videos.length} videos`);
     
+    // Sort by publish date (newest first)
+    const sortedVideos = [...videos].sort((a, b) => 
+        new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+
     grid.innerHTML = '';
-    videos.slice(0, 6).forEach(video => {
-        const card = document.createElement('div');
-        card.className = 'video-card-brutal';
-        card.innerHTML = `
-            <div class="video-thumbnail-chaos">
-                <img src="${video.thumbnail || 'https://i.ytimg.com/vi/' + video.id + '/maxresdefault.jpg'}" 
-                     alt="${video.title}" class="thumbnail-img">
-                <div class="play-button-destruction">▶</div>
-                <div class="chaos-level-indicator">${getChaosLevel(video.viewCount)}</div>
-            </div>
-            <div class="video-info-brutal">
-                <h3 class="video-title-chaos">${truncateTitle(video.title)}</h3>
-                <div class="video-stats-destruction">
-                    <span class="views-chaos">${formatViews(video.viewCount)} views</span>
-                    <span class="date-chaos">${formatDate(video.publishedAt)}</span>
-                </div>
-            </div>
-        `;
-        
-        card.addEventListener('click', () => {
-            window.open(video.youtubeUrl || `https://www.youtube.com/watch?v=${video.id}`, '_blank');
-        });
-        
+    
+    // Render first 12 videos
+    sortedVideos.slice(0, 12).forEach((video, index) => {
+        const card = createVideoCard(video, index);
         grid.appendChild(card);
+        
+        // Animate in with delay
+        setTimeout(() => {
+            card.classList.add('loaded');
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+        }, index * 150);
     });
+}
+
+function renderShorts(shorts) {
+    const shortsGrid = document.getElementById('shorts-grid');
+    if (!shortsGrid) return;
+    
+    if (shorts.length === 0) {
+        shortsGrid.innerHTML = '<div class="no-content">No shorts available</div>';
+        return;
+    }
+    
+    console.log(`⚡ Rendering ${shorts.length} shorts`);
+    
+    shortsGrid.innerHTML = '';
+    shorts.forEach(short => {
+        const card = createShortCard(short);
+        shortsGrid.appendChild(card);
+    });
+}
+
+function createVideoCard(video, index) {
+    const card = document.createElement('div');
+    card.className = 'video-card-brutal';
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px) scale(0.9)';
+    card.style.transition = 'all 0.6s ease';
+    
+    const viewCount = video.viewCount || 0;
+    const chaosLevel = getChaosLevel(viewCount);
+    const isViral = viewCount > 1000;
+    
+    card.innerHTML = `
+        <div class="video-thumbnail-chaos">
+            <img src="${video.thumbnail}" alt="${video.title}" class="thumbnail-img" loading="lazy">
+            <div class="play-button-destruction">▶</div>
+            <div class="chaos-level-indicator ${chaosLevel.toLowerCase()}">${chaosLevel}</div>
+            ${isViral ? '<div class="viral-badge">💥</div>' : ''}
+            <div class="video-duration">${formatDuration(video.duration)}</div>
+        </div>
+        <div class="video-info-brutal">
+            <div class="video-emoji">🎬</div>
+            <h3 class="video-title-chaos">${truncateTitle(video.title)}</h3>
+            <div class="video-stats-destruction">
+                <span class="views-chaos">${formatViews(viewCount)} views</span>
+                <span class="date-chaos">${formatDate(video.publishedAt)}</span>
+            </div>
+            <div class="video-category-tag ${video.category || 'general'}">${(video.category || 'CREATIVE').toUpperCase()}</div>
+        </div>
+    `;
+    
+    // Add click handler for embedded player
+    card.addEventListener('click', () => {
+        openVideoModal(video);
+    });
+    
+    return card;
+}
+
+function createShortCard(short) {
+    const card = document.createElement('div');
+    card.className = 'short-card-brutal';
+    
+    card.innerHTML = `
+        <div class="short-thumbnail-chaos">
+            <img src="${short.thumbnail}" alt="${short.title}" class="thumbnail-img" loading="lazy">
+            <div class="play-button-destruction">▶</div>
+            <div class="short-badge">SHORT</div>
+        </div>
+        <div class="short-info">
+            <h4>${truncateTitle(short.title, 30)}</h4>
+            <span class="short-views">${formatViews(short.viewCount || 0)} views</span>
+        </div>
+    `;
+    
+    card.addEventListener('click', () => {
+        window.open(short.youtubeUrl || `https://www.youtube.com/watch?v=${short.id}`, '_blank');
+    });
+    
+    return card;
+}
+
+function openVideoModal(video) {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-iframe');
+    const title = document.getElementById('modal-title');
+    const views = document.getElementById('modal-views');
+    const description = document.getElementById('modal-description');
+    
+    if (!modal) {
+        console.log('⚠️ Video modal not found, opening in new tab');
+        window.open(video.youtubeUrl || `https://www.youtube.com/watch?v=${video.id}`, '_blank');
+        return;
+    }
+    
+    title.textContent = video.title;
+    views.textContent = `${formatViews(video.viewCount)} views • ${formatDate(video.publishedAt)}`;
+    description.textContent = video.description || 'No description available';
+    
+    // Set YouTube embed URL
+    iframe.src = video.embedUrl || `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    console.log(`🎬 Opened video: ${video.title}`);
 }
 
 function showNoVideos() {
@@ -115,9 +291,12 @@ function showNoVideos() {
     if (grid) {
         grid.innerHTML = `
             <div class="no-videos-message">
-                <h3>🔄 WAITING FOR GITHUB ACTIONS</h3>
-                <p>Dynamic content will load once the workflow creates data files</p>
-                <a href="https://www.youtube.com/@logneon" target="_blank">📺 Visit YouTube Channel</a>
+                <h3>⚡ DYNAMIC CONTENT LOADING...</h3>
+                <p>Your latest videos will appear here when GitHub Actions completes</p>
+                <div class="loading-animation">🔄</div>
+                <a href="https://www.youtube.com/@logneon" target="_blank" class="youtube-link-brutal">
+                    📺 VISIT YOUTUBE CHANNEL
+                </a>
             </div>
         `;
     }
@@ -127,10 +306,13 @@ function showError() {
     const grid = document.getElementById('videos-grid');
     if (grid) {
         grid.innerHTML = `
-            <div class="error-message">
+            <div class="error-message-brutal">
                 <h3>⚠️ LOADING FAILED</h3>
-                <p>Unable to load dynamic content</p>
-                <a href="https://www.youtube.com/@logneon" target="_blank">📺 Visit YouTube Channel</a>
+                <p>Unable to load dynamic content from GitHub Actions</p>
+                <button onclick="loadYouTubeData()" class="retry-button-brutal">🔄 RETRY</button>
+                <a href="https://www.youtube.com/@logneon" target="_blank" class="youtube-link-brutal">
+                    📺 VISIT YOUTUBE CHANNEL
+                </a>
             </div>
         `;
     }
@@ -139,27 +321,61 @@ function showError() {
 function hideLoader() {
     const loader = document.getElementById('dynamic-loader');
     if (loader) {
-        loader.style.display = 'none';
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+        console.log('✅ Loader hidden');
+    }
+}
+
+function showSuccessNotification() {
+    const notification = document.getElementById('success-notification');
+    if (notification) {
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
     }
 }
 
 // Utility functions
 function formatViews(count) {
+    if (!count || count === 0) return '0';
     if (count >= 1000000) return Math.floor(count / 100000) / 10 + 'M';
     if (count >= 1000) return Math.floor(count / 100) / 10 + 'K';
-    return count?.toString() || '0';
+    return count.toString();
 }
 
 function formatDate(dateString) {
     if (!dateString) return 'Unknown';
+    
     const date = new Date(dateString);
     const now = new Date();
     const diffTime = Math.abs(now - date);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays < 30) return `${diffDays} days ago`;
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
     if (diffDays < 365) return `${Math.ceil(diffDays / 30)} months ago`;
     return `${Math.ceil(diffDays / 365)} years ago`;
+}
+
+function formatDuration(duration) {
+    if (!duration) return '';
+    
+    // Convert PT5M41S to 5:41
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return '';
+    
+    const hours = parseInt(match[1] || 0);
+    const minutes = parseInt(match[2] || 0);
+    const seconds = parseInt(match[3] || 0);
+    
+    if (hours > 0) {
+        return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 function truncateTitle(title, maxLength = 60) {
@@ -173,5 +389,20 @@ function getChaosLevel(viewCount) {
     if (viewCount >= 1000) return 'CREATIVE';
     return 'EXPERIMENTAL';
 }
+
+// Global functions
+window.closeVideoModal = function() {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-iframe');
+    
+    if (iframe) iframe.src = '';
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
+};
+
+window.refreshContent = function() {
+    console.log('🔄 Manual refresh triggered');
+    loadYouTubeData();
+};
 
 console.log('📺 LOGNEON Dynamic Loader Ready!');
