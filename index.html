@@ -3,88 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGNEON - DYNAMIC YOUTUBE CHAOS</title>
+    <title>LOGNEON - DYNAMIC BRUTALIST YOUTUBE CHAOS - REAL-TIME TECH CONTENT</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<script src="js/youtube-loader.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Add external JavaScript file -->
-    <script src="js/youtube-loader.js"></script>
 </head>
 <body>
-    <!-- Loading state -->
-    <div id="loading-state" class="loading-chaos">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">LOADING LOGNEON TECH CHAOS...</div>
+    <!-- DYNAMIC LOADING INDICATOR -->
+    <div class="dynamic-loader" id="dynamic-loader">
+        <div class="loader-chaos-core">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">LOADING DYNAMIC LOGNEON CONTENT...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="loader-progress"></div>
+            </div>
+            <div class="loader-status" id="loader-status">CONNECTING TO YOUTUBE API...</div>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="brutal-nav">
+    <!-- PARTICLE CHAOS CANVAS -->
+    <canvas id="chaos-canvas"></canvas>
+    
+    <!-- DIGITAL GLITCH MATRIX -->
+    <div class="glitch-matrix"></div>
+    
+    <!-- MOUSE TRAIL DESTRUCTION -->
+    <div class="mouse-destruction-trail"></div>
+    
+    <!-- DYNAMIC STATS OVERLAY -->
+    <div class="dynamic-stats-overlay" id="stats-overlay">
+        <div class="stat-item">
+            <span class="stat-label">SUBSCRIBERS</span>
+            <span class="stat-value" id="subscriber-count">168</span>
+            <span class="stat-live">●</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">VIDEOS</span>
+            <span class="stat-value" id="video-count">39</span>
+            <span class="stat-live">●</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">VIEWS</span>
+            <span class="stat-value" id="total-views">75K</span>
+            <span class="stat-live">●</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">LAST UPDATE</span>
+            <span class="stat-value" id="last-update">LIVE</span>
+            <span class="stat-live">●</span>
+        </div>
+    </div>
+    
+    <!-- VIDEO MODAL SYSTEM - EMBEDDED YOUTUBE PLAYER -->
+    <div class="video-modal hidden" id="video-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title">LOADING DYNAMIC TECH CHAOS...</div>
+                <button class="modal-close" id="modal-close">✕</button>
+            </div>
+            <div class="modal-video-container">
+                <iframe id="video-iframe" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="modal-info">
+                <div class="modal-views" id="modal-views"></div>
+                <div class="modal-description" id="modal-description"></div>
+                <div class="modal-actions">
+                    <a class="modal-youtube-link" id="modal-youtube-link" target="_blank">
+                        📺 WATCH ON YOUTUBE
+                    </a>
+                    <a class="modal-channel-link" href="https://www.youtube.com/@logneon" target="_blank">
+                        🔔 SUBSCRIBE TO LOGNEON
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ERROR FALLBACK MODAL -->
+    <div class="error-modal hidden" id="error-modal">
+        <div class="modal-backdrop"></div>
+        <div class="error-container">
+            <div class="error-header">
+                <div class="error-title">⚠️ DYNAMIC LOADING FAILED</div>
+                <button class="modal-close" onclick="closeErrorModal()">✕</button>
+            </div>
+            <div class="error-content">
+                <p>Unable to load dynamic YouTube content. Displaying fallback static content.</p>
+                <div class="error-actions">
+                    <button class="btn--primary" onclick="retryDynamicLoading()">🔄 RETRY LOADING</button>
+                    <a href="https://www.youtube.com/@logneon" target="_blank" class="btn--secondary">📺 VISIT CHANNEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BRUTAL NAVIGATION WITH DYNAMIC INDICATORS -->
+    <nav class="brutal-nav" id="brutal-nav">
         <div class="logo-chaos-container">
             <div class="logo-brutalism">
                 <span class="logo-text glitch-text" data-text="LOGNEON">LOGNEON</span>
-                <div class="logo-subtext">EXPLORE SOMETHING NEW HERE</div>
-                <div class="subscriber-chaos" id="subscriber-count">168 REBELS</div>
+                <div class="logo-subtext">DYNAMIC TECH CHAOS - REAL-TIME</div>
+                <div class="subscriber-chaos">
+                    <span id="nav-subscriber-count">168</span> REBELS • 
+                    <span id="nav-video-count">39</span> VIDEOS
+                </div>
+                <div class="dynamic-status">
+                    <span class="dynamic-indicator" id="dynamic-indicator">●</span>
+                    <span class="dynamic-text">LIVE DATA</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-destruction-objects">
+            <div class="nav-brutal-object" data-section="latest" data-label="📺 LATEST CHAOS">
+                <div class="object-neon-core">📺</div>
+                <div class="object-particle-storm"></div>
+                <div class="nav-counter" id="latest-counter">0</div>
+            </div>
+            <div class="nav-brutal-object" data-section="popular" data-label="🔥 VIRAL HITS">
+                <div class="object-neon-core">🔥</div>
+                <div class="object-particle-storm"></div>
+                <div class="nav-counter" id="popular-counter">0</div>
+            </div>
+            <div class="nav-brutal-object" data-section="shorts" data-label="⚡ SHORT CHAOS">
+                <div class="object-neon-core">⚡</div>
+                <div class="object-particle-storm"></div>
+                <div class="nav-counter" id="shorts-counter">0</div>
+            </div>
+            <div class="nav-brutal-object" data-section="categories" data-label="🎬 TECH CATEGORIES">
+                <div class="object-neon-core">🎬</div>
+                <div class="object-particle-storm"></div>
+                <div class="nav-counter" id="categories-counter">6</div>
+            </div>
+            <div class="nav-brutal-object" data-section="subscribe" data-label="🔔 JOIN REBELLION">
+                <div class="object-neon-core">🔔</div>
+                <div class="object-particle-storm"></div>
+                <div class="nav-counter" id="subscribe-counter">168</div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-tech-chaos">
-        <h1 class="hero-title-extreme">
-            <span class="title-line-1">DYNAMIC</span>
-            <span class="title-line-2">YOUTUBE</span>
-            <span class="title-line-3">CHAOS</span>
-        </h1>
+    <!-- MAIN DYNAMIC CHAOS CONTAINER -->
+    <main class="chaos-destruction-main">
         
-        <div class="hero-stats-brutal">
-            <div class="stat-brutal-card">
-                <span class="stat-number-chaos" id="total-videos">39</span>
-                <span class="stat-label-destruction">TOTAL VIDEOS</span>
+        <!-- SECTION: LATEST VIDEOS DYNAMIC CHAOS -->
+        <section class="brutal-section active" id="latest" data-bg="chaos">
+            <div class="section-destruction-bg">
+                <div class="neon-chaos-grid"></div>
+                <div class="digital-overlay"></div>
             </div>
-            <div class="stat-brutal-card">
-                <span class="stat-number-chaos" id="subscriber-stat">168</span>
-                <span class="stat-label-destruction">SUBSCRIBERS</span>
+            
+            <div class="content-destruction-wrapper">
+                <div class="floating-stats-chaos">
+                    <div class="stat-fragment dynamic" style="--x: 15%; --y: 20%; --delay: 0s;">
+                        <span class="stat-number" id="floating-subscribers">168</span>
+                        <span class="stat-label">LIVE SUBS</span>
+                    </div>
+                    <div class="stat-fragment dynamic" style="--x: 80%; --y: 25%; --delay: 0.5s;">
+                        <span class="stat-number" id="floating-views">75K</span>
+                        <span class="stat-label">TOTAL VIEWS</span>
+                    </div>
+                    <div class="stat-fragment dynamic" style="--x: 85%; --y: 75%; --delay: 1s;">
+                        <span class="stat-number" id="floating-videos">39</span>
+                        <span class="stat-label">VIDEOS</span>
+                    </div>
+                </div>
+                
+                <div class="title-chaos-explosion">
+                    <h1 class="brutal-main-title">
+                        <span class="title-shard" style="--shard-delay: 0s; --shard-x: -200px;">LATEST</span>
+                        <span class="title-shard massive" style="--shard-delay: 0.3s; --shard-x: 150px;">DYNAMIC</span>
+                        <span class="title-shard neon" style="--shard-delay: 0.6s; --shard-x: -100px;">CHAOS</span>
+                    </h1>
+                    <div class="dynamic-refresh-indicator">
+                        <span class="refresh-icon" id="refresh-icon">🔄</span>
+                        <span class="refresh-text">AUTO-REFRESH EVERY 4 HOURS</span>
+                    </div>
+                </div>
+                
+                <div class="videos-destruction-grid" id="latest-videos-grid">
+                    <!-- DYNAMIC CONTENT LOADED HERE -->
+                    <div class="loading-video-card">
+                        <div class="loading-shimmer"></div>
+                        <div class="loading-text">LOADING DYNAMIC CONTENT...</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Videos Section -->
-    <section class="videos-section">
-        <div class="section-header-brutal">
-            <h2 class="section-title-chaos">LATEST CHAOS</h2>
-        </div>
-        
-        <!-- Update video grid to be empty initially -->
-        <div class="videos-grid-chaos" id="videos-grid">
-            <!-- Dynamic content loads here -->
-        </div>
-    </section>
-
-    <!-- Shorts Section -->
-    <section class="shorts-section">
-        <div class="section-header-brutal">
-            <h2 class="section-title-chaos">SHORTS DESTRUCTION</h2>
-        </div>
-        
-        <div class="shorts-grid-chaos" id="shorts-grid">
-            <!-- Dynamic shorts content loads here -->
-        </div>
-    </section>
-
-    <!-- Video Modal -->
-    <div class="video-modal" id="video-modal" style="display: none;">
-        <div class="modal-backdrop" onclick="closeVideoModal()"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <div class="modal-title" id="modal-title">Video Title</div>
-                <button class="modal-close" onclick="closeVideoModal()">✕</button>
+        <!-- SECTION: POPULAR VIDEOS DYNAMIC -->
+        <section class="brutal-section" id="popular" data-bg="chaos">
+            <div class="section-destruction-bg">
+                <div class="viral-chaos-grid"></div>
+                <div class="digital-overlay popular"></div>
             </div>
-            <div class="modal-video-container">
-                <iframe id="video-iframe" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            
+            <div class="content-destruction-wrapper">
+                <div class="title-chaos-explosion">
+                    <h1 class="brutal-main-title">
+                        <span class="title-shard" style="--shard-delay: 0s; --shard-x: -250px;">VIRAL</span>
+                        <span class="title-shard massive" style="--shard-delay: 0.3s; --shard-x: 200px;">TECH</span>
+                        <span class="title-shard neon" style="--shard-delay: 0.6s; --shard-x: -150px;">HITS</span>
+                    </h1>
+                </div>
+                
+                <div class="videos-destruction-grid popular" id="popular-videos-grid">
+                    <!-- DYNAMIC POPULAR CONTENT LOADED HERE -->
+                    <div class="loading-video-card viral">
+                        <div class="loading-shimmer viral"></div>
+                        <div class="loading-text">LOADING VIRAL CONTENT...</div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- SECTION: DYNAMIC SHORTS -->
+        <section class="brutal-section" id="shorts" data-bg="chaos">
+            <div class="section-destruction-bg">
+                <div class="shorts-chaos-grid"></div>
+                <div class="digital-overlay shorts"></div>
+            </div>
+            
+            <div class="content-destruction-wrapper">
+                <div class="title-chaos-explosion">
+                    <h1 class="brutal-main-title">
+                        <span class="title-shard" style="--shard-delay: 0s; --shard-x: -180px;">SHORT</span>
+                        <span class="title-shard massive" style="--shard-delay: 0.3s; --shard-x: 120px;">TECH</span>
+                        <span class="title-shard neon" style="--shard-delay: 0.6s; --shard-x: -80px;">CHAOS</span>
+                    </h1>
+                </div>
+                
+                <div class="shorts-destruction-grid" id="shorts-videos-grid">
+                    <!-- DYNAMIC SHORTS CONTENT LOADED HERE -->
+                    <div class="loading-short-card">
+                        <div class="loading-shimmer short"></div>
+                        <div class="loading-text">LOADING SHORTS...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DYNAMIC CATEGORIES -->
+        <section class="brutal-section" id="categories" data-bg="chaos">
+            <div class="section-destruction-bg">
+                <div class="category-chaos-grid"></div>
+                <div class="digital-overlay categories"></div>
+            </div>
+            
+            <div class="content-destruction-wrapper">
+                <div class="title-chaos-explosion">
+                    <h1 class="brutal-main-title">
+                        <span class="title-shard" style="--shard-delay: 0s; --shard-x: -180px;">TECH</span>
+                        <span class="title-shard massive" style="--shard-delay: 0.3s; --shard-x: 120px;">CATEGORIES</span>
+                    </h1>
+                </div>
+                
+                <div class="categories-orbital-chaos" id="categories-orbital">
+                    <!-- DYNAMIC CATEGORIES LOADED HERE -->
+                </div>
+                
+                <div class="category-filter-chaos">
+                    <div class="filter-title">FILTER BY TECH CHAOS LEVEL</div>
+                    <div class="filter-buttons" id="category-filters">
+                        <button class="filter-btn active" data-category="all">ALL CHAOS</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DYNAMIC SUBSCRIBE -->
+        <section class="brutal-section" id="subscribe" data-bg="chaos">
+            <div class="section-destruction-bg">
+                <div class="subscribe-chaos-storm"></div>
+                <div class="digital-overlay subscribe"></div>
+            </div>
+            
+            <div class="content-destruction-wrapper">
+                <div class="title-chaos-explosion">
+                    <h1 class="brutal-main-title">
+                        <span class="title-shard" style="--shard-delay: 0s; --shard-x: -200px;">JOIN</span>
+                        <span class="title-shard massive" style="--shard-delay: 0.3s; --shard-x: 150px;">THE</span>
+                        <span class="title-shard neon" style="--shard-delay: 0.6s; --shard-x: -100px;">REBELLION</span>
+                    </h1>
+                </div>
+                
+                <div class="subscribe-destruction-center">
+                    <div class="subscribe-brutal-btn" id="subscribe-chaos" onclick="window.open('https://www.youtube.com/@logneon', '_blank')">
+                        <div class="subscribe-icon">🔔</div>
+                        <div class="subscribe-text">SUBSCRIBE TO CHAOS</div>
+                        <div class="subscribe-particles"></div>
+                        <div class="subscribe-count" id="subscribe-count-display">168 REBELS</div>
+                    </div>
+
+                    <div class="social-chaos-links">
+                        <a href="https://www.youtube.com/@logneon" target="_blank" class="social-brutal-link youtube">
+                            <span class="social-icon">📺</span>
+                            <span class="social-label">YOUTUBE</span>
+                        </a>
+                        <a href="https://logneon.com" target="_blank" class="social-brutal-link website">
+                            <span class="social-icon">🌐</span>
+                            <span class="social-label">WEBSITE</span>
+                        </a>
+                    </div>
+
+                    <div class="about-chaos-info">
+                        <h3 class="about-title">DYNAMIC TECH CHAOS CREATOR</h3>
+                        <div class="about-content">
+                            <p>Real-time tech tutorials with dynamic content updates. Authentic channel with live subscriber counts and automatic video refreshing via GitHub Actions.</p>
+                            <div class="about-stats">
+                                <div class="about-stat">
+                                    <span class="stat-value" id="about-video-count">39</span>
+                                    <span class="stat-label">VIDEOS</span>
+                                </div>
+                                <div class="about-stat">
+                                    <span class="stat-value" id="about-total-views">75K</span>
+                                    <span class="stat-label">TOTAL VIEWS</span>
+                                </div>
+                                <div class="about-stat">
+                                    <span class="stat-value">2020</span>
+                                    <span class="stat-label">ESTABLISHED</span>
+                                </div>
+                            </div>
+                            <div class="specialties-chaos">
+                                <span class="specialty-tag">DYNAMIC CONTENT</span>
+                                <span class="specialty-tag">REAL-TIME STATS</span>
+                                <span class="specialty-tag">AUTO-REFRESH</span>
+                                <span class="specialty-tag">GITHUB ACTIONS</span>
+                            </div>
+                            <div class="dynamic-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔄</span>
+                                    <span class="feature-text">Auto-refresh every 4 hours</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📊</span>
+                                    <span class="feature-text">Live subscriber counts</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Real-time video data</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🤖</span>
+                                    <span class="feature-text">GitHub Actions automation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- DYNAMIC REFRESH NOTIFICATION -->
+    <div class="refresh-notification hidden" id="refresh-notification">
+        <div class="notification-content">
+            <div class="notification-icon">🔄</div>
+            <div class="notification-text">DYNAMIC CONTENT REFRESHED</div>
+            <div class="notification-details">New videos and stats loaded</div>
         </div>
     </div>
+
+    <!-- SCREEN SHAKE CONTROLLER -->
+    <div class="screen-shake-controller" id="screen-shake"></div>
+    
+    <!-- AUDIO FEEDBACK SYSTEM -->
+    <div class="audio-chaos-system"></div>
+
+    <script src="app.js"></script>
 </body>
 </html>
