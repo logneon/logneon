@@ -45,3 +45,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
+
+permissions:
+  contents: write
+  actions: write
