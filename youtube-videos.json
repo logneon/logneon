@@ -1,0 +1,21 @@
+// youtube-videos.json
+{
+  "videos": [
+    {
+      "id": "fu3Ja6zC5Ss",
+      "title": "Make RJ45 Ethernet Cable...",
+      "viewCount": 63,
+      "publishedAt": "2024-07-14T10:00:00Z",
+      "category": "networking",
+      "embedUrl": "https://www.youtube.com/embed/fu3Ja6zC5Ss"
+    }
+  ]
+}
+
+// youtube-stats.json
+{
+  "subscriberCount": 168,
+  "videoCount": 39,
+  "viewCount": 75000,
+  "lastUpdated": "2025-09-08T17:00:00Z"
+}
