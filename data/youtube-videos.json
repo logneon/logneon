@@ -146,7 +146,7 @@
       "description": "Ever wondered if you can power a 220V LED bulb using just a mobile power bank? 🤔\nIn this DIY experiment, I’ll show you how I used:\n\nA 12V Type-C decoy module\n\nMy Mi Type-C power bank\n\nAn old PC UPS (without battery)\n\nA B22 bulb holder with a 220V LED bulb\n\nHow it works:\nThe 12V Type-C decoy draws power from the power bank and feeds it to the UPS battery terminals. The UPS then converts it to 220V AC, lighting up the LED bulb!\n\n⚠️ Safety Note: This is for educational purposes only. Be careful when working with AC voltage.\n\n#typecpowerbank  #typeccharger #220volt #dctoac #decoy #typec #diy #ups #TypeCPowerBank #LEDLight #DIYProjects #ElectronicsExperiment #PowerBankHack",
       "thumbnail": "https://i.ytimg.com/vi/c7ROT-LQYlI/maxresdefault.jpg",
       "publishedAt": "2025-08-13T12:43:48Z",
-      "viewCount": 885,
+      "viewCount": 886,
       "likeCount": 17,
       "duration": "PT2M29S",
       "embedUrl": "https://www.youtube.com/embed/c7ROT-LQYlI",
