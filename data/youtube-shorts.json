@@ -251,20 +251,6 @@
       "youtubeUrl": "https://www.youtube.com/watch?v=KYukxXleA6I",
       "category": "general",
       "isShort": true
-    },
-    {
-      "id": "Fel89ABke3k",
-      "title": "Increase storage space in old laptop",
-      "description": "",
-      "thumbnail": "https://i.ytimg.com/vi/Fel89ABke3k/maxresdefault.jpg",
-      "publishedAt": "2022-06-09T03:28:16Z",
-      "viewCount": 1197,
-      "likeCount": 39,
-      "duration": "PT59S",
-      "embedUrl": "https://www.youtube.com/embed/Fel89ABke3k",
-      "youtubeUrl": "https://www.youtube.com/watch?v=Fel89ABke3k",
-      "category": "general",
-      "isShort": true
     }
   ]
 }
