@@ -1,6 +1,20 @@
 {
   "videos": [
     {
+      "id": "Te9qBUOJ_y8",
+      "title": "Dehradun #day 2 #dehradun #kalsang #mallofdehradun",
+      "description": "",
+      "thumbnail": "https://i.ytimg.com/vi/Te9qBUOJ_y8/maxresdefault.jpg",
+      "publishedAt": "2026-03-13T15:15:33Z",
+      "viewCount": 9,
+      "likeCount": 2,
+      "duration": "PT2M52S",
+      "embedUrl": "https://www.youtube.com/embed/Te9qBUOJ_y8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Te9qBUOJ_y8",
+      "category": "general",
+      "isShort": false
+    },
+    {
       "id": "vRAsARK2qZM",
       "title": "Clean white cement from kettle | 100 % lime scale removal techniques #electrickettle #cleaning",
       "description": "",
@@ -272,7 +286,7 @@
       "description": "Experience Samsung DeX on Galaxy S24 with an external monitor! In this video, I show how to connect the S24 using a Type-C to HDMI multiport adapter (Terabyte) and use the phone as a touchpad with a keyboard for a complete desktop experience.\n\n✅ Tested apps:\n\nJioTV & MyJio App\n\nAirtel Xstream\n\nDisney+ Hotstar\n\nGaming with Alto’s Adventure\n\nThis setup is perfect for entertainment, productivity, and gaming on a bigger screen.\n\n🔌 Setup Used:\n\nSamsung Galaxy S24\n\nTerabyte Type-C to HDMI Multiport Adapter\n\nExternal Monitor + Keyboard\n\nPhone as Touchpad\n\nIf you found this demo useful, don’t forget to like 👍, share 🔗, and subscribe 🔔 for more tech experiments!\n\nWebsite: logneon.com\n\n#SamsungDeX #GalaxyS24 #JioTV #AirtelXstream #Hotstar #AltosAdventure #TypeCtoHDMI",
       "thumbnail": "https://i.ytimg.com/vi/RTZeV1uI9kk/maxresdefault.jpg",
       "publishedAt": "2025-09-12T08:59:07Z",
-      "viewCount": 3841,
+      "viewCount": 3844,
       "likeCount": 48,
       "duration": "PT3M",
       "embedUrl": "https://www.youtube.com/embed/RTZeV1uI9kk",
@@ -432,20 +446,6 @@
       "embedUrl": "https://www.youtube.com/embed/X7WdHIl_WNs",
       "youtubeUrl": "https://www.youtube.com/watch?v=X7WdHIl_WNs",
       "category": "diy",
-      "isShort": false
-    },
-    {
-      "id": "GCuShzQ0qw0",
-      "title": "Watch Solar Eclipse Safely | Pinhole Camera",
-      "description": "In this video I have used cardboard for making a pinhole camera as you can see there are tiny holes in the cardboard and tiny eclipse are visible on the screen.\nAttention: never watch solar eclipse directly with your naked eyes.\nfor watching eclipse you can only use a special type of eclipse watching glasses.\nYou can indirectly watch solar clips with the help of pinhole camera as soon in this video, are you can use a tree shadow which will also make multiple tiny eclipses.\nLocation: Haldwani\nhow to make pinhole camera\nhow to watch eclipse safely\n#solareclipse #pinholecamera #cardboard",
-      "thumbnail": "https://i.ytimg.com/vi/GCuShzQ0qw0/maxresdefault.jpg",
-      "publishedAt": "2022-10-25T15:35:36Z",
-      "viewCount": 84,
-      "likeCount": 6,
-      "duration": "PT8M47S",
-      "embedUrl": "https://www.youtube.com/embed/GCuShzQ0qw0",
-      "youtubeUrl": "https://www.youtube.com/watch?v=GCuShzQ0qw0",
-      "category": "software",
       "isShort": false
     }
   ]
