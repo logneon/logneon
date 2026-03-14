@@ -1,6 +1,20 @@
 {
   "videos": [
     {
+      "id": "bJo0pX_xDWk",
+      "title": "Dehradun trip day 3 #dehradun #lafing",
+      "description": "",
+      "thumbnail": "https://i.ytimg.com/vi/bJo0pX_xDWk/maxresdefault.jpg",
+      "publishedAt": "2026-03-14T02:30:26Z",
+      "viewCount": 4,
+      "likeCount": 0,
+      "duration": "PT1M28S",
+      "embedUrl": "https://www.youtube.com/embed/bJo0pX_xDWk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=bJo0pX_xDWk",
+      "category": "general",
+      "isShort": false
+    },
+    {
       "id": "Te9qBUOJ_y8",
       "title": "Dehradun #day 2 #dehradun #kalsang #mallofdehradun",
       "description": "",
@@ -286,7 +300,7 @@
       "description": "Experience Samsung DeX on Galaxy S24 with an external monitor! In this video, I show how to connect the S24 using a Type-C to HDMI multiport adapter (Terabyte) and use the phone as a touchpad with a keyboard for a complete desktop experience.\n\n✅ Tested apps:\n\nJioTV & MyJio App\n\nAirtel Xstream\n\nDisney+ Hotstar\n\nGaming with Alto’s Adventure\n\nThis setup is perfect for entertainment, productivity, and gaming on a bigger screen.\n\n🔌 Setup Used:\n\nSamsung Galaxy S24\n\nTerabyte Type-C to HDMI Multiport Adapter\n\nExternal Monitor + Keyboard\n\nPhone as Touchpad\n\nIf you found this demo useful, don’t forget to like 👍, share 🔗, and subscribe 🔔 for more tech experiments!\n\nWebsite: logneon.com\n\n#SamsungDeX #GalaxyS24 #JioTV #AirtelXstream #Hotstar #AltosAdventure #TypeCtoHDMI",
       "thumbnail": "https://i.ytimg.com/vi/RTZeV1uI9kk/maxresdefault.jpg",
       "publishedAt": "2025-09-12T08:59:07Z",
-      "viewCount": 3863,
+      "viewCount": 3872,
       "likeCount": 48,
       "duration": "PT3M",
       "embedUrl": "https://www.youtube.com/embed/RTZeV1uI9kk",
@@ -432,20 +446,6 @@
       "embedUrl": "https://www.youtube.com/embed/Go3HZauN2c8",
       "youtubeUrl": "https://www.youtube.com/watch?v=Go3HZauN2c8",
       "category": "astronomy",
-      "isShort": false
-    },
-    {
-      "id": "X7WdHIl_WNs",
-      "title": "Changing Thermal Paste After 6 Years",
-      "description": "Cooler Master thermal paste\nDevice G500s \nIn this video replacing thermal paste is shown.\nFirst switch off your laptop and then remove its battery, and open the laptop back panel, remove its heat sink, carefully remove its old thermal paste and apply new thermal paste.",
-      "thumbnail": "https://i.ytimg.com/vi/X7WdHIl_WNs/maxresdefault.jpg",
-      "publishedAt": "2022-10-30T10:25:31Z",
-      "viewCount": 173,
-      "likeCount": 8,
-      "duration": "PT5M42S",
-      "embedUrl": "https://www.youtube.com/embed/X7WdHIl_WNs",
-      "youtubeUrl": "https://www.youtube.com/watch?v=X7WdHIl_WNs",
-      "category": "diy",
       "isShort": false
     }
   ]
