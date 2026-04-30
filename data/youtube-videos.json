@@ -1,6 +1,20 @@
 {
   "videos": [
     {
+      "id": "QZobvr1w8BQ",
+      "title": "How I Installed ComfyUI on Google Cloud (NVIDIA L4) – Full Setup + Stunning AI Images! 🚀🔥",
+      "description": "------create python virtual environment\nsudo apt-get install python3.12-venv -y\npython3 -m venv venv\nsource venv/bin/activate\npip install -r requirements.txt\n----launch\nsource venv/bin/activate\npython3 main.py --lowvram --preview-method none --use-pytorch-cross-attention\n-----\n\n------comfyUI manager installation-----\nstoop the comfiui server\nctrl + c\n\nNavigate to the Custom Nodes Folder\ncd ~/ComfyUI/custom_nodes\ngit clone https://github.com/ltdrdata/ComfyUI-Manager.git\n\n-------------------------\n----------[swap creation:]---------\nsudo fallocate -l 40G /swapfile\nsudo dd if=/dev/zero of=/swapfile bs=1G count=40 status=progress\nsudo chmod 600 /swapfile\nsudo mkswap /swapfile\nsudo swapon /swapfile\nfree -h\n----------launch----\ncd ~/ComfyUI\nsource venv/bin/activate\npython3 main.py --lowvram --preview-method none --use-pytorch-cross-attention\n------------------------------------\nSSH Commands\nssh -o StrictHostKeyChecking=accept-new -i $HOME\\.ssh\\gcp_comfy_key -L 8188:127.0.0.1:8188 username@serverIP\n\nssh -i $HOME\\.ssh\\gcp_comfy_key username@serverIP",
+      "thumbnail": "https://i.ytimg.com/vi/QZobvr1w8BQ/maxresdefault.jpg",
+      "publishedAt": "2026-04-30T15:23:56Z",
+      "viewCount": 0,
+      "likeCount": 0,
+      "duration": "PT16M33S",
+      "embedUrl": "https://www.youtube.com/embed/QZobvr1w8BQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QZobvr1w8BQ",
+      "category": "general",
+      "isShort": false
+    },
+    {
       "id": "9UjyByaxV54",
       "title": "Induction aa gyaa | Prestige Touch 2000w #inductioncooktop #gas #lpgshortage",
       "description": "",
@@ -454,7 +468,7 @@
       "description": "Experience Samsung DeX on Galaxy S24 with an external monitor! In this video, I show how to connect the S24 using a Type-C to HDMI multiport adapter (Terabyte) and use the phone as a touchpad with a keyboard for a complete desktop experience.\n\n✅ Tested apps:\n\nJioTV & MyJio App\n\nAirtel Xstream\n\nDisney+ Hotstar\n\nGaming with Alto’s Adventure\n\nThis setup is perfect for entertainment, productivity, and gaming on a bigger screen.\n\n🔌 Setup Used:\n\nSamsung Galaxy S24\n\nTerabyte Type-C to HDMI Multiport Adapter\n\nExternal Monitor + Keyboard\n\nPhone as Touchpad\n\nIf you found this demo useful, don’t forget to like 👍, share 🔗, and subscribe 🔔 for more tech experiments!\n\nWebsite: logneon.com\n\n#SamsungDeX #GalaxyS24 #JioTV #AirtelXstream #Hotstar #AltosAdventure #TypeCtoHDMI",
       "thumbnail": "https://i.ytimg.com/vi/RTZeV1uI9kk/maxresdefault.jpg",
       "publishedAt": "2025-09-12T08:59:07Z",
-      "viewCount": 6062,
+      "viewCount": 6068,
       "likeCount": 90,
       "duration": "PT3M",
       "embedUrl": "https://www.youtube.com/embed/RTZeV1uI9kk",
