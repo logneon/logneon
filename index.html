@@ -3,450 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGNEON - Dynamic Tech Chaos | Real YouTube Integration</title>
-    <meta name="description" content="LOGNEON - Dynamic tech tutorials with real-time YouTube content updates. Authentic channel with live subscriber counts and automatic video refreshing via GitHub Actions.">
-    <meta name="keywords" content="tech tutorials, networking, hardware, DIY, electronics, YouTube, dynamic content">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="complete-style.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="complete-style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+    <title>LOGNEON YouTube Channel | Tech Videos, Shorts, Tutorials and Stories</title>
+    <meta
+        name="description"
+        content="Official LOGNEON YouTube channel website featuring tech videos, shorts, tutorials, AI tools, science explainers, and direct YouTube subscribe links."
+    >
+    <meta name="keywords" content="LOGNEON, LOGNEON YouTube channel, tech videos, YouTube shorts, tech tutorials, AI tools, science videos, practical tech, official channel website">
+    <meta name="author" content="LOGNEON">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#07111f">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LOGNEON">
+    <meta property="og:title" content="LOGNEON YouTube Channel | Tech Videos, Shorts, Tutorials and Stories">
+    <meta property="og:description" content="Official LOGNEON YouTube channel website with on-site playback, tech tutorials, shorts, AI tools, science explainers, and direct subscribe links.">
+    <meta property="og:url" content="https://logneon.com/">
+    <meta property="og:image" content="https://logneon.com/channel-logo.png">
+    <meta property="og:image:alt" content="LOGNEON YouTube channel logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LOGNEON YouTube Channel | Tech Videos, Shorts, Tutorials and Stories">
+    <meta name="twitter:description" content="Official LOGNEON website for videos, shorts, tutorials, and YouTube channel discovery.">
+    <meta name="twitter:image" content="https://logneon.com/channel-logo.png">
+    <link rel="icon" href="channel-logo.png">
+    <link rel="canonical" href="https://logneon.com/">
+    <link rel="apple-touch-icon" href="https://logneon.com/channel-logo.png">
+    <link rel="alternate" href="https://www.youtube.com/@logneon" title="LOGNEON on YouTube">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://logneon.com/#organization",
+                    "name": "LOGNEON",
+                    "url": "https://logneon.com/",
+                    "description": "Official website of the LOGNEON YouTube channel featuring tech tutorials, AI tools, shorts, science explainers, and channel videos.",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://logneon.com/channel-logo.png",
+                        "width": 500,
+                        "height": 500
+                    },
+                    "sameAs": [
+                        "https://www.youtube.com/@logneon",
+                        "https://www.youtube.com/channel/UCLYYxtgh5MwOLuGsfK32TIw"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://logneon.com/#website",
+                    "url": "https://logneon.com/",
+                    "name": "LOGNEON",
+                    "publisher": {
+                        "@id": "https://logneon.com/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "CollectionPage",
+                    "@id": "https://logneon.com/#webpage",
+                    "url": "https://logneon.com/",
+                    "name": "LOGNEON YouTube Channel Website",
+                    "isPartOf": {
+                        "@id": "https://logneon.com/#website"
+                    },
+                    "about": {
+                        "@id": "https://logneon.com/#organization"
+                    },
+                    "description": "Official LOGNEON website with playable YouTube videos, channel highlights, shorts, and direct subscribe actions.",
+                    "mainEntity": {
+                        "@type": "ItemList",
+                        "name": "Featured LOGNEON Videos",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "url": "https://www.youtube.com/watch?v=QZobvr1w8BQ",
+                                "item": {
+                                    "@type": "VideoObject",
+                                    "name": "Install ComfyUI on Linux - Zimage | wan 2.2 14B Complete Setup Guide",
+                                    "description": "LOGNEON tutorial covering ComfyUI installation on Linux with Google Cloud and NVIDIA L4 workflow steps.",
+                                    "thumbnailUrl": "https://i.ytimg.com/vi/QZobvr1w8BQ/maxresdefault.jpg",
+                                    "uploadDate": "2026-04-30T15:23:56Z",
+                                    "duration": "PT16M33S",
+                                    "embedUrl": "https://www.youtube.com/embed/QZobvr1w8BQ",
+                                    "url": "https://www.youtube.com/watch?v=QZobvr1w8BQ",
+                                    "interactionStatistic": {
+                                        "@type": "InteractionCounter",
+                                        "interactionType": {
+                                            "@type": "WatchAction"
+                                        },
+                                        "userInteractionCount": 52
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "url": "https://www.youtube.com/watch?v=9UjyByaxV54",
+                                "item": {
+                                    "@type": "VideoObject",
+                                    "name": "Induction aa gyaa | Prestige Touch 2000w #inductioncooktop #gas #lpgshortage",
+                                    "description": "LOGNEON practical tech video featuring a Prestige Touch 2000W induction cooktop upload.",
+                                    "thumbnailUrl": "https://i.ytimg.com/vi/9UjyByaxV54/maxresdefault.jpg",
+                                    "uploadDate": "2026-04-18T08:57:20Z",
+                                    "duration": "PT2M40S",
+                                    "embedUrl": "https://www.youtube.com/embed/9UjyByaxV54",
+                                    "url": "https://www.youtube.com/watch?v=9UjyByaxV54",
+                                    "interactionStatistic": {
+                                        "@type": "InteractionCounter",
+                                        "interactionType": {
+                                            "@type": "WatchAction"
+                                        },
+                                        "userInteractionCount": 325
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "url": "https://www.youtube.com/watch?v=Sq6PyH3iuPg",
+                                "item": {
+                                    "@type": "VideoObject",
+                                    "name": "Voyager 1 Current Location (2026) | Farthest Human Object in Space",
+                                    "description": "LOGNEON science and space explainer about Voyager 1 and its current location in interstellar space.",
+                                    "thumbnailUrl": "https://i.ytimg.com/vi/Sq6PyH3iuPg/maxresdefault.jpg",
+                                    "uploadDate": "2026-03-23T15:35:56Z",
+                                    "duration": "PT1M51S",
+                                    "embedUrl": "https://www.youtube.com/embed/Sq6PyH3iuPg",
+                                    "url": "https://www.youtube.com/watch?v=Sq6PyH3iuPg",
+                                    "interactionStatistic": {
+                                        "@type": "InteractionCounter",
+                                        "interactionType": {
+                                            "@type": "WatchAction"
+                                        },
+                                        "userInteractionCount": 203
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    </script>
 </head>
 <body>
-    <!-- DYNAMIC LOADING SYSTEM -->
-    <div class="dynamic-loader" id="dynamic-loader">
-        <div class="loader-chaos-core">
-            <div class="loader-spinner" id="loader-spinner"></div>
-            <div class="loader-text" id="loader-text">LOADING LOGNEON CHAOS</div>
-            <div class="loader-progress" id="loader-progress">
-                <div class="loader-progress-bar" id="loader-progress-bar"></div>
+    <div class="site-shell">
+        <div class="page-backdrop" aria-hidden="true"></div>
+        <div class="page-grid" aria-hidden="true"></div>
+
+        <header class="site-header">
+            <a class="brand" href="#top" data-sound="hover">
+                <span class="brand-mark">
+                    <img src="channel-logo.png" alt="LOGNEON channel logo">
+                </span>
+                <span class="brand-copy">
+                    <strong>LOGNEON</strong>
+                    <span>Editorial tech channel website</span>
+                </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Primary">
+                <a href="#latest" data-sound="hover">Latest</a>
+                <a href="#highlights" data-sound="hover">Highlights</a>
+                <a href="#shorts" data-sound="hover">Shorts</a>
+                <a href="#explore" data-sound="hover">Explore</a>
+            </nav>
+
+            <div class="header-actions">
+                <button
+                    class="button button-secondary"
+                    id="play-random-top"
+                    type="button"
+                    data-random-trigger="true"
+                    data-sound="click"
+                >
+                    Play Something Random
+                </button>
+
+                <button
+                    class="sound-toggle"
+                    id="sound-toggle"
+                    type="button"
+                    aria-pressed="true"
+                    data-enabled="true"
+                    data-sound="click"
+                >
+                    <span class="sound-toggle-dot" aria-hidden="true"></span>
+                    <span id="sound-toggle-label">Sound On</span>
+                </button>
+
+                <a
+                    class="header-cta"
+                    id="header-subscribe"
+                    href="https://www.youtube.com/@logneon?sub_confirmation=1"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-sound="click"
+                >
+                    Subscribe
+                </a>
             </div>
-            <div class="loader-status" id="loader-status">Initializing dynamic content...</div>
-        </div>
+        </header>
+
+        <main id="top">
+            <section class="hero section">
+                <div class="player-panel hero-player reveal">
+                    <div class="panel-head">
+                        <div>
+                            <span class="panel-label">Now Playing</span>
+                            <h2 class="panel-title">LOGNEON Watch Station</h2>
+                        </div>
+                        <button class="button button-ghost" id="focus-player" type="button" data-sound="click">
+                            Focus Mode
+                        </button>
+                    </div>
+
+                    <div class="player-frame">
+                        <iframe
+                            id="hero-player"
+                            title="LOGNEON selected video"
+                            src=""
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+
+                    <div class="player-meta">
+                        <div class="player-kicker-row">
+                            <span class="player-kicker" id="player-kind">Featured video</span>
+                            <span class="player-kicker" id="player-duration">--</span>
+                        </div>
+
+                        <h3 id="player-title">Select a video</h3>
+                        <p id="player-summary">Pick any video card to load it here and watch without leaving the website.</p>
+
+                        <div class="player-stats">
+                            <span id="player-date">--</span>
+                            <span id="player-views">--</span>
+                            <span id="player-likes">--</span>
+                        </div>
+
+                        <div class="player-actions">
+                            <button class="button button-primary" id="play-selected" type="button" data-sound="click">
+                                Replay Here
+                            </button>
+                            <a
+                                class="button button-secondary"
+                                id="player-youtube-link"
+                                href="https://www.youtube.com/@logneon"
+                                target="_blank"
+                                rel="noreferrer"
+                                data-sound="click"
+                            >
+                                Open on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="queue-list" id="player-queue" aria-label="Up next"></div>
+                </div>
+
+                <div class="hero-copy hero-side reveal">
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot" aria-hidden="true"></span>
+                        <span id="hero-sync-label">Live channel data loading</span>
+                    </div>
+
+                    <h1>
+                        Watch LOGNEON
+                        <span>without the clutter.</span>
+                    </h1>
+
+                    <p id="hero-description">
+                        Loading the latest channel profile and content from local JSON snapshots.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="button button-primary" id="play-latest" type="button" data-sound="click">
+                            Play Latest Upload
+                        </button>
+                        <a
+                            class="button button-secondary"
+                            id="hero-youtube-link"
+                            href="https://www.youtube.com/@logneon"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-sound="click"
+                        >
+                            Open Channel on YouTube
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics" id="hero-metrics">
+                        <article class="metric-card">
+                            <span class="metric-label">Subscribers</span>
+                            <strong class="metric-value" id="metric-subscribers">--</strong>
+                        </article>
+                        <article class="metric-card">
+                            <span class="metric-label">Total Videos</span>
+                            <strong class="metric-value" id="metric-videos">--</strong>
+                        </article>
+                        <article class="metric-card">
+                            <span class="metric-label">Total Views</span>
+                            <strong class="metric-value" id="metric-views">--</strong>
+                        </article>
+                        <article class="metric-card">
+                            <span class="metric-label">Updated</span>
+                            <strong class="metric-value metric-date" id="metric-updated">--</strong>
+                        </article>
+                    </div>
+
+                    <div class="hero-spotlight">
+                        <div class="hero-spotlight-head">
+                            <span class="panel-label">Channel snapshot</span>
+                            <a class="hero-inline-link" href="#highlights" data-sound="hover">See highlights</a>
+                        </div>
+                        <p class="hero-spotlight-copy" id="hero-spotlight">
+                            Loading the latest signal from your channel.
+                        </p>
+                    </div>
+
+                    <div class="signal-strip" id="signal-strip"></div>
+                </div>
+            </section>
+
+            <section class="stat-band section reveal" id="highlights">
+                <article class="stat-band-card">
+                    <span class="stat-band-label">Fresh Upload</span>
+                    <strong class="stat-band-value" id="highlight-fresh">--</strong>
+                    <p class="stat-band-copy" id="highlight-fresh-copy">Loading latest upload details.</p>
+                </article>
+
+                <article class="stat-band-card">
+                    <span class="stat-band-label">Top Performer</span>
+                    <strong class="stat-band-value" id="highlight-top">--</strong>
+                    <p class="stat-band-copy" id="highlight-top-copy">Loading strongest-performing video.</p>
+                </article>
+
+                <article class="stat-band-card">
+                    <span class="stat-band-label">Shorts Momentum</span>
+                    <strong class="stat-band-value" id="highlight-shorts">--</strong>
+                    <p class="stat-band-copy" id="highlight-shorts-copy">Loading short-form activity.</p>
+                </article>
+            </section>
+
+            <section class="content-section section" id="latest">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="section-kicker">Latest uploads</span>
+                        <h2>Watch the full LOGNEON catalog with a cleaner, faster browsing flow.</h2>
+                    </div>
+
+                    <div class="filter-row" id="video-filters" role="tablist" aria-label="Video filters"></div>
+                </div>
+
+                <div class="video-grid" id="latest-grid"></div>
+            </section>
+
+            <section class="content-section section" id="shorts">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="section-kicker">Short-form drops</span>
+                        <h2>Fast hits, vertical ideas, and high-tempo updates from the channel.</h2>
+                    </div>
+                </div>
+
+                <div class="shorts-grid" id="shorts-grid"></div>
+            </section>
+
+            <section class="content-section section" id="explore">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="section-kicker">Channel radar</span>
+                        <h2>Topic clusters generated from your current YouTube data.</h2>
+                    </div>
+                </div>
+
+                <div class="topic-grid" id="topic-grid"></div>
+            </section>
+
+            <section class="about-section section reveal">
+                <div class="about-card">
+                    <div class="about-copy">
+                        <span class="section-kicker">About LOGNEON</span>
+                        <h2 id="about-title">A better channel website for people who want to watch, browse, and subscribe faster.</h2>
+                        <p id="about-description">
+                            This website is powered by your local YouTube JSON snapshots, rebuilt to feel more premium, readable, and responsive on every screen size.
+                        </p>
+                    </div>
+
+                    <div class="about-actions">
+                        <a
+                            class="button button-primary"
+                            id="footer-subscribe"
+                            href="https://www.youtube.com/@logneon?sub_confirmation=1"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-sound="click"
+                        >
+                            Visit the YouTube Channel
+                        </a>
+                        <button
+                            class="button button-secondary"
+                            id="play-random-footer"
+                            type="button"
+                            data-random-trigger="true"
+                            data-sound="click"
+                        >
+                            Play Something Random
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <strong>LOGNEON</strong>
+                <span id="footer-handle">@logneon</span>
+            </div>
+            <p id="footer-note">Data source: local JSON snapshots in the site repository.</p>
+        </footer>
     </div>
 
-    <!-- PARTICLE CHAOS CANVAS -->
-    <canvas id="chaos-canvas"></canvas>
+    <div class="modal" id="player-modal" hidden>
+        <div class="modal-backdrop" id="modal-close"></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-head">
+                <div>
+                    <span class="panel-label">Focus player</span>
+                    <h2 class="panel-title" id="modal-title">LOGNEON Focus Mode</h2>
+                </div>
+                <button class="modal-close" id="modal-close-button" type="button" aria-label="Close focus mode" data-sound="click">
+                    Close
+                </button>
+            </div>
 
-    <!-- GLITCH MATRIX OVERLAY -->
-    <div class="glitch-matrix"></div>
+            <div class="modal-frame">
+                <iframe
+                    id="modal-player"
+                    title="LOGNEON focus mode player"
+                    src=""
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
 
-    <!-- MOUSE DESTRUCTION TRAIL -->
-    <div class="mouse-destruction-trail"></div>
-
-    <!-- DYNAMIC STATS OVERLAY -->
-    <div class="dynamic-stats-overlay" id="stats-overlay">
-        <div class="stat-item">
-            <div class="stat-label">SUBSCRIBERS</div>
-            <div class="stat-value" id="floating-subscribers">168</div>
-            <div class="stat-live">●</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-label">VIDEOS</div>
-            <div class="stat-value" id="floating-videos">39</div>
-            <div class="stat-live">●</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-label">VIEWS</div>
-            <div class="stat-value" id="floating-views">78.6K</div>
-            <div class="stat-live">●</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-label">LIVE</div>
-            <div class="stat-value">ON</div>
-            <div class="stat-live">●</div>
-        </div>
-    </div>
-
-    <!-- BRUTAL NAVIGATION -->
-    <nav class="brutal-nav" id="brutal-nav">
-        <!-- LOGO CHAOS CONTAINER -->
-        <div class="logo-chaos-container">
-            <div class="logo-brutalism">
-                <div class="logo-text glitch-text" data-text="LOGNEON">LOGNEON</div>
-                <div class="logo-subtext">DYNAMIC TECH CHAOS</div>
-                <div class="subscriber-chaos" id="subscriber-count">168 LIVE SUBS</div>
-                <div class="dynamic-status">
-                    <div class="dynamic-indicator" id="dynamic-indicator">●</div>
-                    <div class="dynamic-text">AUTO-REFRESH EVERY 4 HOURS</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- NAVIGATION DESTRUCTION OBJECTS -->
-        <div class="nav-destruction-objects">
-            <div class="nav-brutal-object" data-section="latest" data-label="LATEST DYNAMIC CHAOS">
-                <div class="object-neon-core">📺</div>
-                <div class="nav-counter" id="latest-counter">39</div>
-                <div class="object-particle-storm"></div>
-            </div>
-            
-            <div class="nav-brutal-object" data-section="viral" data-label="VIRAL TECH HITS">
-                <div class="object-neon-core">🔥</div>
-                <div class="nav-counter" id="popular-counter">6</div>
-                <div class="object-particle-storm"></div>
-            </div>
-            
-            <div class="nav-brutal-object" data-section="shorts" data-label="SHORT TECH CHAOS">
-                <div class="object-neon-core">⚡</div>
-                <div class="nav-counter" id="shorts-counter">12</div>
-                <div class="object-particle-storm"></div>
-            </div>
-            
-            <div class="nav-brutal-object" data-section="categories" data-label="TECH CATEGORIES">
-                <div class="object-neon-core">🛠️</div>
-                <div class="nav-counter">7</div>
-                <div class="object-particle-storm"></div>
-            </div>
-            
-            <div class="nav-brutal-object" data-section="subscribe" data-label="JOIN THE REBELLION">
-                <div class="object-neon-core">🚀</div>
-                <div class="nav-counter" id="nav-subscriber-count">168</div>
-                <div class="object-particle-storm"></div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- MAIN CHAOS CONTAINER -->
-    <main class="chaos-destruction-main">
-        
-        <!-- LATEST VIDEOS SECTION -->
-        <section class="brutal-section active" data-section="latest">
-            <div class="section-destruction-bg">
-                <div class="neon-chaos-grid"></div>
-                <div class="digital-overlay"></div>
-            </div>
-            
-            <div class="content-destruction-wrapper">
-                <div class="floating-stats-chaos">
-                    <div class="stat-fragment dynamic" style="--x: 10%; --y: 15%; --delay: 0s;">
-                        <div class="stat-number" id="video-count">39</div>
-                        <div class="stat-label">TECH DESTRUCTION<br>VIDEOS</div>
-                    </div>
-                    <div class="stat-fragment" style="--x: 85%; --y: 20%; --delay: 0.5s;">
-                        <div class="stat-number">75K</div>
-                        <div class="stat-label">TOTAL<br>VIEWS</div>
-                    </div>
-                    <div class="stat-fragment" style="--x: 15%; --y: 75%; --delay: 1s;">
-                        <div class="stat-number" id="subscriber-count-display">168</div>
-                        <div class="stat-label">LIVE<br>REBELS</div>
-                    </div>
-                </div>
-                
-                <div class="title-chaos-explosion">
-                    <h1 class="brutal-main-title">
-                        <span class="title-shard massive" style="--shard-x: -200px; --shard-delay: 0s;">LATEST</span>
-                        <span class="title-shard neon" style="--shard-x: 200px; --shard-delay: 0.3s;">DYNAMIC</span>
-                        <span class="title-shard" style="--shard-x: -150px; --shard-delay: 0.6s;">CHAOS</span>
-                    </h1>
-                    
-                    <div class="dynamic-refresh-indicator">
-                        <div class="refresh-icon">🔄</div>
-                        <div class="refresh-text">AUTO-REFRESH EVERY 4 HOURS</div>
-                    </div>
-                </div>
-                
-                <div class="videos-destruction-grid" id="latest-videos-grid">
-                    <!-- Dynamic content loads here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- VIRAL TECH HITS SECTION -->
-        <section class="brutal-section" data-section="viral">
-            <div class="section-destruction-bg">
-                <div class="viral-chaos-grid"></div>
-                <div class="digital-overlay popular"></div>
-            </div>
-            
-            <div class="content-destruction-wrapper">
-                <div class="floating-stats-chaos">
-                    <div class="stat-fragment" style="--x: 20%; --y: 10%; --delay: 0s;">
-                        <div class="stat-number">15K</div>
-                        <div class="stat-label">MAX<br>VIEWS</div>
-                    </div>
-                    <div class="stat-fragment" style="--x: 80%; --y: 15%; --delay: 0.5s;">
-                        <div class="stat-number">92%</div>
-                        <div class="stat-label">LIKE<br>RATIO</div>
-                    </div>
-                </div>
-                
-                <div class="title-chaos-explosion">
-                    <h1 class="brutal-main-title">
-                        <span class="title-shard massive" style="--shard-x: -180px; --shard-delay: 0s;">VIRAL</span>
-                        <span class="title-shard neon" style="--shard-x: 180px; --shard-delay: 0.3s;">TECH</span>
-                        <span class="title-shard" style="--shard-x: -120px; --shard-delay: 0.6s;">HITS</span>
-                    </h1>
-                </div>
-                
-                <div class="videos-destruction-grid popular" id="popular-videos-grid">
-                    <!-- Dynamic content loads here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- SHORT TECH CHAOS SECTION -->
-        <section class="brutal-section" data-section="shorts">
-            <div class="section-destruction-bg">
-                <div class="shorts-chaos-grid"></div>
-                <div class="digital-overlay shorts"></div>
-            </div>
-            
-            <div class="content-destruction-wrapper">
-                <div class="title-chaos-explosion">
-                    <h1 class="brutal-main-title">
-                        <span class="title-shard" style="--shard-x: -160px; --shard-delay: 0s;">SHORT</span>
-                        <span class="title-shard neon" style="--shard-x: 160px; --shard-delay: 0.3s;">TECH</span>
-                        <span class="title-shard massive" style="--shard-x: -100px; --shard-delay: 0.6s;">CHAOS</span>
-                    </h1>
-                </div>
-                
-                <div class="shorts-destruction-grid" id="shorts-videos-grid">
-                    <!-- Dynamic content loads here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- TECH CATEGORIES SECTION -->
-        <section class="brutal-section" data-section="categories">
-            <div class="section-destruction-bg">
-                <div class="category-chaos-grid"></div>
-                <div class="digital-overlay categories"></div>
-            </div>
-            
-            <div class="content-destruction-wrapper">
-                <div class="title-chaos-explosion">
-                    <h1 class="brutal-main-title">
-                        <span class="title-shard" style="--shard-x: -140px; --shard-delay: 0s;">TECH</span>
-                        <span class="title-shard massive" style="--shard-x: 140px; --shard-delay: 0.3s;">CATEGORIES</span>
-                    </h1>
-                </div>
-                
-                <div class="categories-orbital-chaos" id="categories-orbital">
-                    <div class="category-brutal-object" style="--orbit-angle: 0deg; --orbit-radius: 180px;">
-                        <div class="category-icon">🌐</div>
-                        <div class="category-info">
-                            <span class="category-name">Networking</span>
-                            <span class="category-count">8 videos</span>
-                            <span class="category-desc">RJ45, WiFi, BSNL</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 51deg; --orbit-radius: 180px;">
-                        <div class="category-icon">⚡</div>
-                        <div class="category-info">
-                            <span class="category-name">Hardware</span>
-                            <span class="category-count">6 videos</span>
-                            <span class="category-desc">USB, SSD, Components</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 102deg; --orbit-radius: 180px;">
-                        <div class="category-icon">💻</div>
-                        <div class="category-info">
-                            <span class="category-name">Software</span>
-                            <span class="category-count">4 videos</span>
-                            <span class="category-desc">Docker, WordPress</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 153deg; --orbit-radius: 180px;">
-                        <div class="category-icon">🔧</div>
-                        <div class="category-info">
-                            <span class="category-name">DIY</span>
-                            <span class="category-count">7 videos</span>
-                            <span class="category-desc">Battery, Thermal Paste</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 204deg; --orbit-radius: 180px;">
-                        <div class="category-icon">📱</div>
-                        <div class="category-info">
-                            <span class="category-name">Mobile</span>
-                            <span class="category-count">5 videos</span>
-                            <span class="category-desc">5G, Speed Tests</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 255deg; --orbit-radius: 180px;">
-                        <div class="category-icon">🛡️</div>
-                        <div class="category-info">
-                            <span class="category-name">Security</span>
-                            <span class="category-count">3 videos</span>
-                            <span class="category-desc">Port Forwarding</span>
-                        </div>
-                    </div>
-                    
-                    <div class="category-brutal-object" style="--orbit-angle: 306deg; --orbit-radius: 180px;">
-                        <div class="category-icon">🌟</div>
-                        <div class="category-info">
-                            <span class="category-name">Experimental</span>
-                            <span class="category-count">6 videos</span>
-                            <span class="category-desc">Space, Astronomy</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-filter-chaos" id="category-filters">
-                    <div class="filter-title">FILTER BY TECH CHAOS LEVEL</div>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">ALL CHAOS</button>
-                        <button class="filter-btn" data-filter="networking">NETWORKING</button>
-                        <button class="filter-btn" data-filter="hardware">HARDWARE</button>
-                        <button class="filter-btn" data-filter="software">SOFTWARE</button>
-                        <button class="filter-btn" data-filter="diy">DIY</button>
-                        <button class="filter-btn" data-filter="mobile">MOBILE</button>
-                        <button class="filter-btn" data-filter="security">SECURITY</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SUBSCRIBE SECTION -->
-        <section class="brutal-section" data-section="subscribe">
-            <div class="section-destruction-bg">
-                <div class="subscribe-chaos-storm"></div>
-                <div class="digital-overlay subscribe"></div>
-            </div>
-            
-            <div class="content-destruction-wrapper">
-                <div class="title-chaos-explosion">
-                    <h1 class="brutal-main-title">
-                        <span class="title-shard" style="--shard-x: -120px; --shard-delay: 0s;">JOIN</span>
-                        <span class="title-shard massive" style="--shard-x: 120px; --shard-delay: 0.3s;">THE</span>
-                        <span class="title-shard neon" style="--shard-x: -80px; --shard-delay: 0.6s;">REBELLION</span>
-                    </h1>
-                </div>
-                
-                <div class="subscribe-destruction-center">
-                    <a href="https://www.youtube.com/@logneon?sub_confirmation=1" target="_blank" class="subscribe-brutal-btn">
-                        <div class="subscribe-icon">🔔</div>
-                        <div class="subscribe-text">SUBSCRIBE TO LOGNEON</div>
-                        <div class="subscribe-count" id="subscribe-counter">168 REBELS</div>
-                    </a>
-                    
-                    <div class="social-chaos-links">
-                        <a href="https://www.youtube.com/@logneon" target="_blank" class="social-brutal-link">
-                            <div class="social-icon">📺</div>
-                            <div class="social-label">YOUTUBE</div>
-                        </a>
-                        
-                        <a href="https://github.com/logneon" target="_blank" class="social-brutal-link">
-                            <div class="social-icon">💻</div>
-                            <div class="social-label">GITHUB</div>
-                        </a>
-                        
-                        <a href="mailto:contact@logneon.com" class="social-brutal-link">
-                            <div class="social-icon">📧</div>
-                            <div class="social-label">EMAIL</div>
-                        </a>
-                        
-                        <a href="https://x.com/dpkbh9" target="_blank" class="social-brutal-link">
-                            <div class="social-icon">🐦</div>
-                            <div class="social-label">TWITTER | X</div>
-                        </a>
-                    </div>
-                    
-                    <div class="about-chaos-info">
-                        <div class="about-title">DYNAMIC TECH CHAOS CREATOR</div>
-                        <div class="about-content">
-                            <p>Real-time tech tutorials with dynamic content updates. Authentic channel with live subscriber counts and automatic video refreshing via GitHub Actions.</p>
-                            
-                            <div class="about-stats">
-                                <div class="about-stat">
-                                    <div class="stat-value" id="about-video-count">39</div>
-                                    <div class="stat-label">VIDEOS</div>
-                                </div>
-                                <div class="about-stat">
-                                    <div class="stat-value" id="about-total-views">75K</div>
-                                    <div class="stat-label">TOTAL VIEWS</div>
-                                </div>
-                                <div class="about-stat">
-                                    <div class="stat-value">2020</div>
-                                    <div class="stat-label">ESTABLISHED</div>
-                                </div>
-                            </div>
-                            
-                            <div class="specialties-chaos">
-                                <div class="specialty-tag">DYNAMIC CONTENT</div>
-                                <div class="specialty-tag">REAL-TIME STATS</div>
-                                <div class="specialty-tag">AUTO-REFRESH</div>
-                                <div class="specialty-tag">GITHUB ACTIONS</div>
-                            </div>
-                            
-                            <div class="dynamic-features">
-                                <div class="feature-item">
-                                    <div class="feature-icon">🔄</div>
-                                    <div class="feature-text">Auto-refresh every 4 hours</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">📊</div>
-                                    <div class="feature-text">Live subscriber counts</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">🎬</div>
-                                    <div class="feature-text">Real-time video data</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">⚙️</div>
-                                    <div class="feature-text">GitHub Actions automation</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div id="last-update" class="last-updated"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </main>
-
-    <!-- VIDEO MODAL SYSTEM -->
-    <div class="video-modal hidden" id="video-modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <div class="modal-title" id="modal-title">LOGNEON Tech Video</div>
-                <button class="modal-close" id="modal-close" onclick="closeVideoModal()">×</button>
-            </div>
-            <div class="modal-video-container">
-                <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="modal-info">
-                <div class="modal-views" id="modal-views">Loading views...</div>
-                <div class="modal-description" id="modal-description">Loading description...</div>
-                <div class="modal-actions">
-                    <a href="#" target="_blank" id="modal-youtube-link" class="modal-youtube-link">
-                        <span>📺</span> WATCH ON YOUTUBE
-                    </a>
-                    <a href="https://www.youtube.com/@logneon" target="_blank" class="modal-channel-link">
-                        <span>🔔</span> SUBSCRIBE TO LOGNEON
-                    </a>
-                </div>
+            <div class="modal-actions">
+                <a
+                    class="button button-primary"
+                    id="modal-youtube-link"
+                    href="https://www.youtube.com/@logneon"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-sound="click"
+                >
+                    Open This Video on YouTube
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- REFRESH NOTIFICATION -->
-    <div class="refresh-notification hidden" id="refresh-notification">
-        <div class="notification-content">
-            <div class="notification-icon">⚡</div>
-            <div class="notification-text">CONTENT UPDATED</div>
-            <div class="notification-details">Dynamic content refreshed successfully</div>
-        </div>
-    </div>
+    <noscript>
+        <div class="noscript-banner">Enable JavaScript to load the LOGNEON video catalog and in-site player.</div>
+    </noscript>
 
-<!-- JavaScript - CORRECT ORDER WITH NAVIGATION -->
-<script src="sound-system.js"></script>
-<script src="navigation-system.js"></script>
-<script src="youtube-loader.js"></script>
-<script src="complete-app.js"></script>
-
+    <script type="module" src="app.js"></script>
 </body>
 </html>
