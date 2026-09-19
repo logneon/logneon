@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js';
+import * as THREE from 'three';
 import {body,collide,barrier,SPECS} from './physics.mjs';
 import {createEnvironment} from './environment.mjs';
 const $=id=>document.getElementById(id),keys=new Set(),scene=new THREE.Scene();
