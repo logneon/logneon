@@ -125,20 +125,6 @@
       "youtubeUrl": "https://www.youtube.com/watch?v=IWBQg7E7nMw",
       "category": "general",
       "isShort": true
-    },
-    {
-      "id": "qCzGG0xs2Gk",
-      "title": "My Dear, It’s a Beautiful Day Beneath a Beautiful Sunset.",
-      "description": "",
-      "thumbnail": "https://i.ytimg.com/vi/qCzGG0xs2Gk/maxresdefault.jpg",
-      "publishedAt": "2025-10-14T06:56:41Z",
-      "viewCount": 166,
-      "likeCount": 10,
-      "duration": "PT45S",
-      "embedUrl": "https://www.youtube.com/embed/qCzGG0xs2Gk",
-      "youtubeUrl": "https://www.youtube.com/watch?v=qCzGG0xs2Gk",
-      "category": "general",
-      "isShort": true
     }
   ]
 }
